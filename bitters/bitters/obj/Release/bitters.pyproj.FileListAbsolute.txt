@@ -1,0 +1,7 @@
+G:\Projects\Bitters\bitters\bitters\bin\Microsoft.PythonTools.WebRole.dll
+G:\Projects\Bitters\bitters\bitters\bin\AzureSetup.cfg
+G:\Projects\Bitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe
+G:\Projects\Bitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe.config
+G:\Projects\Bitters\bitters\bitters\bin\wfastcgi.py
+G:\Projects\Bitters\bitters\bitters\obj\Release\web.config
+G:\Projects\Bitters\bitters\bitters\obj\Release\web.debug.config
