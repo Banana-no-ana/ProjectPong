@@ -11,6 +11,9 @@ class VoteForm(Form):
         ('Cloud Service', 'Cloud Service'),
         ('Virtual Machine', 'Virtual Machine')], default='Cloud Service')
 
+class EventActors(Form):
+    actorName = StringField('Event Actor name', [validators.Length(min=4, max=20)])
+    
 
 class Events(Form):
     eventName = StringField('Event Name', [validators.Length(min=4, max=30)])

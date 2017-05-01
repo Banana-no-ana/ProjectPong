@@ -1,0 +1,13 @@
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.WebRole.dll
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\attach_server.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\visualstudio_py_debugger.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\visualstudio_py_repl.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\visualstudio_py_util.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\__init__.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\__main__.py
+G:\Projects\ProjectBitters\bitters\bitters\bin\AzureSetup.cfg
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe.config
+G:\Projects\ProjectBitters\bitters\bitters\bin\wfastcgi.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.config
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.debug.config
