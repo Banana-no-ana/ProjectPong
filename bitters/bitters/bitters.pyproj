@@ -33,6 +33,15 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="bitters\gameConfig\entity\char.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bitters\gameConfig\entity\event.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bitters\gameConfig\entity\placeable.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="forms.py">
       <SubType>Code</SubType>
     </Compile>
@@ -45,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bitters\" />
+    <Folder Include="bitters\gameConfig\" />
+    <Folder Include="bitters\gameConfig\entity\" />
     <Folder Include="bitters\static\" />
     <Folder Include="bitters\static\content\" />
     <Folder Include="bitters\static\fonts\" />
