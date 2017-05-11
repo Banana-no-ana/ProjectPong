@@ -8,5 +8,6 @@ DOCUMENTDB_DATABASE = 'voting database'
 DOCUMENTDB_COLLECTION = 'voting collection'
 DOCUMENTDB_DOCUMENT = 'voting document'
 
-BITTERS_PROJECT = 'bitters db'
-EVENT_ACTORS = 'event actors'
+BITTERS_CONFIG = 'bitters config'
+PLACEABLES = 'placeables'
+

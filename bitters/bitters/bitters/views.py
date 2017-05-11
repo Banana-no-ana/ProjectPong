@@ -6,6 +6,7 @@ from datetime import datetime
 from flask import render_template
 from bitters import app
 from forms import VoteForm
+import forms
 import config
 import pydocumentdb.document_client as document_client
 
@@ -120,7 +121,7 @@ def vote():
             form = form)
 
 
-@app.route('/ViewActors', methods=['GET', 'POST'])
+@app.route('/actors', methods=['GET', 'POST'])
 def viewactors(): 
     default_actors = ['blacksmith', 'butler', 'area_boss', 'king', 'area_minion1', 'area_minion2', 'area_minion3', 'merchant']
     
@@ -134,3 +135,44 @@ def viewactors():
 
     # Read documents and take first since id should not be duplicated.
     doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+
+
+@app.route('/placeable', methods=['GET', 'POST'])
+def placeables():
+    # Set up the clients to query for actors in these collections. 
+    client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+    form = forms.PlaceableForm()
+    # Read databases and take first since id should not be duplicated.
+    if form.validate_on_submit():
+        try:
+            db = next((data for data in client.ReadDatabases() if data['id'] == config.BITTERS_CONFIG))
+        except: #DB doesn't exist
+            createDB(client, config.BITTERS_CONFIG)
+
+        # Read collections and take first since id should not be duplicated.
+        try:
+            coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
+        except:
+            createCollection(client, db, config.PLACEABLES)
+        myname = form.placeableName.data
+        mydesc = form.description.data
+
+        document = client.CreateDocument(coll['_self'],
+            { 'id': form.placeableName.data,              
+              'name': form.placeableName.data, 
+              'description': form.description.data
+            })
+    ##TODO: Populate all the existing placeables
+    ##TODO: Add a place to input the new placeable
+    
+    
+    return render_template('placeable.html', 
+                            title = 'Placeables', 
+                            form = form)
+
+
+def createDB(client, DB):    
+    db = client.CreateDatabase({ 'id': DB})
+
+def createCollection(client, db, collectionName):
+    collection = client.CreateCollection(db['_self'],{ 'id': collectionName })

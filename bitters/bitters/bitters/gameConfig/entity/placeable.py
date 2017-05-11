@@ -14,17 +14,18 @@ Almost all placeables will have events. Events are listed first from the Placeab
 
 - Resource production is not an event, but can be affected by events. Resource production is calculated at the end of the turn. 
 - Placeables may also have resource demands, production, as well as consumption. All 3 are calculated from placeable attributes, character attributes, then perks. 
-    
+
 
 """
 
 #Palceables can be buildings
 class placeable(object):
+    id = "Default ID"
     name = "Default placeable"
     description = "Default description"
     allowedUpgrades = [placeableUpgradeType()]
     allowedCharacterClasses = [characterClass()]
-    isEventActor = True #Default all placeables are events
+    #isEventActor = True #Default all placeables are events
     currentEventActor = eventActor() #Default eventActor
     #TileType = Undefined as of yet
     
@@ -46,10 +47,3 @@ class placeableUpgrade(object):
     name = "Default upgrade"
     description = "Default description"
     upgradeType = placeableUpgradeType()    
-
-
-#Defines the tileType of the map
-class tileType(object):
-    name = "Default placeable"
-    description = "Default description"
-    

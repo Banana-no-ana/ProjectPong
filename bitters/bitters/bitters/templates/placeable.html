@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+    <h2>Input a new placeable over here</h2>
+    <form action="" method="post" name="placeable">
+        {{form.hidden_tag()}}
+
+        {{ form.placeableName.label }} : {{ form.placeableName }}
+        <br />        
+        {{ form.description.label }} : {{ form.description }}        
+        <p></p>
+        <button class="btn btn-primary" type="submit">Submit new</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

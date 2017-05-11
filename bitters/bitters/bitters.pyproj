@@ -42,6 +42,9 @@
     <Compile Include="bitters\gameConfig\entity\placeable.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bitters\gameConfig\entity\tiles.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="forms.py">
       <SubType>Code</SubType>
     </Compile>
@@ -65,6 +68,7 @@
   <ItemGroup>
     <None Include="Bitters - Web Deploy.pubxml" />
     <Content Include="bitters\templates\create.html" />
+    <Content Include="bitters\templates\placeable.html" />
     <Content Include="bitters\templates\results.html" />
     <Content Include="bitters\templates\vote.html" />
     <Content Include="requirements.txt" />
