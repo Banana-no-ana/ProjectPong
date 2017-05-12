@@ -10,6 +10,7 @@ import forms
 import config
 import pydocumentdb.document_client as document_client
 
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -138,7 +139,7 @@ def viewactors():
 
 
 @app.route('/placeable', methods=['GET', 'POST'])
-def placeables():
+def placeable():
     # Set up the clients to query for actors in these collections. 
     client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
     form = forms.PlaceableForm()
