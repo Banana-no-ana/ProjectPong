@@ -33,7 +33,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bitters\gameConfig\entity\char.py">
+    <Compile Include="bitters\gameConfig\entity\chararacter.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="bitters\gameConfig\entity\event.py">
@@ -45,6 +45,12 @@
     <Compile Include="bitters\gameConfig\entity\tiles.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="bitters\gameConfig\entity\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="bitters\gameConfig\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="forms.py">
       <SubType>Code</SubType>
     </Compile>
@@ -54,6 +60,9 @@
     <Compile Include="runserver.py" />
     <Compile Include="bitters\__init__.py" />
     <Compile Include="bitters\views.py" />
+    <Compile Include="__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bitters\" />

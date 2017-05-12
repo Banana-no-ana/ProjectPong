@@ -140,6 +140,8 @@ def viewactors():
 
 @app.route('/placeable', methods=['GET', 'POST'])
 def placeable():
+    
+
     # Set up the clients to query for actors in these collections. 
     client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
     form = forms.PlaceableForm()
@@ -155,14 +157,13 @@ def placeable():
             coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
         except:
             createCollection(client, db, config.PLACEABLES)
-        myname = form.placeableName.data
-        mydesc = form.description.data
+        
+        placeable_object =  placeableType()
+        placeable_object.name = form.placeableName.data
+        placeable_object.id = form.placeableName.data
+        placeable_object.description = form.description.data
 
-        document = client.CreateDocument(coll['_self'],
-            { 'id': form.placeableName.data,              
-              'name': form.placeableName.data, 
-              'description': form.description.data
-            })
+        document = client.CreateDocument(coll['_self'], eval(placeable_object))
     ##TODO: Populate all the existing placeables
     ##TODO: Add a place to input the new placeable
     
