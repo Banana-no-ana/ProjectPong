@@ -4,10 +4,11 @@ Routes and views for the flask application.
 
 from datetime import datetime
 from flask import render_template
-from bitters import app
+from webapp import app
 from forms import VoteForm
 import forms
 import config
+#from webapp.gameConfig.entity import placeable_entitity
 import pydocumentdb.document_client as document_client
 
 
@@ -139,9 +140,8 @@ def viewactors():
 
 
 @app.route('/placeable', methods=['GET', 'POST'])
-def placeable():
-    
-
+def placeable():  
+    from webapp.gameConfig.entity.placeable_entity import placeableType
     # Set up the clients to query for actors in these collections. 
     client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
     form = forms.PlaceableForm()
@@ -163,7 +163,7 @@ def placeable():
         placeable_object.id = form.placeableName.data
         placeable_object.description = form.description.data
 
-        document = client.CreateDocument(coll['_self'], eval(placeable_object))
+        document = client.CreateDocument(coll['_self'], placeable_object.__dict__)
     ##TODO: Populate all the existing placeables
     ##TODO: Add a place to input the new placeable
     

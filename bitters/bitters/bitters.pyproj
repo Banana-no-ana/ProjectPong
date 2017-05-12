@@ -33,22 +33,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bitters\gameConfig\entity\chararacter.py">
+    <Compile Include="webapp\gameConfig\entity\character.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\event.py">
+    <Compile Include="webapp\gameConfig\entity\gameEvents.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\placeable.py">
+    <Compile Include="webapp\gameConfig\entity\placeable_entity.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\tiles.py">
+    <Compile Include="webapp\gameConfig\entity\tiles.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\__init__.py">
+    <Compile Include="webapp\gameConfig\entity\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\__init__.py">
+    <Compile Include="webapp\gameConfig\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="forms.py">
@@ -58,55 +58,52 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="runserver.py" />
-    <Compile Include="bitters\__init__.py" />
-    <Compile Include="bitters\views.py" />
-    <Compile Include="__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="webapp\__init__.py" />
+    <Compile Include="webapp\views.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bitters\" />
-    <Folder Include="bitters\gameConfig\" />
-    <Folder Include="bitters\gameConfig\entity\" />
-    <Folder Include="bitters\static\" />
-    <Folder Include="bitters\static\content\" />
-    <Folder Include="bitters\static\fonts\" />
-    <Folder Include="bitters\static\scripts\" />
-    <Folder Include="bitters\templates\" />
+    <Folder Include="webapp\" />
+    <Folder Include="webapp\gameConfig\" />
+    <Folder Include="webapp\gameConfig\entity\" />
+    <Folder Include="webapp\static\" />
+    <Folder Include="webapp\static\content\" />
+    <Folder Include="webapp\static\fonts\" />
+    <Folder Include="webapp\static\scripts\" />
+    <Folder Include="webapp\templates\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Bitters - Web Deploy.pubxml" />
-    <Content Include="bitters\templates\create.html" />
-    <Content Include="bitters\templates\placeable.html" />
-    <Content Include="bitters\templates\results.html" />
-    <Content Include="bitters\templates\vote.html" />
+    <Content Include="webapp\templates\create.html" />
+    <Content Include="webapp\templates\placeable.html" />
+    <Content Include="webapp\templates\results.html" />
+    <Content Include="webapp\templates\vote.html" />
     <Content Include="requirements.txt" />
-    <Content Include="bitters\static\content\bootstrap.css" />
-    <Content Include="bitters\static\content\bootstrap.min.css" />
-    <Content Include="bitters\static\content\site.css" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bitters\static\scripts\bootstrap.js" />
-    <Content Include="bitters\static\scripts\bootstrap.min.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.min.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.min.map" />
-    <Content Include="bitters\static\scripts\jquery.validate-vsdoc.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.min.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="bitters\static\scripts\modernizr-2.6.2.js" />
-    <Content Include="bitters\static\scripts\respond.js" />
-    <Content Include="bitters\static\scripts\respond.min.js" />
-    <Content Include="bitters\static\scripts\_references.js" />
-    <Content Include="bitters\templates\about.html" />
-    <Content Include="bitters\templates\contact.html" />
-    <Content Include="bitters\templates\index.html" />
-    <Content Include="bitters\templates\layout.html" />
+    <Content Include="webapp\static\content\bootstrap.css" />
+    <Content Include="webapp\static\content\bootstrap.min.css" />
+    <Content Include="webapp\static\content\site.css" />
+    <Content Include="webapp\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="webapp\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="webapp\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="webapp\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="webapp\static\scripts\bootstrap.js" />
+    <Content Include="webapp\static\scripts\bootstrap.min.js" />
+    <Content Include="webapp\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="webapp\static\scripts\jquery-1.10.2.js" />
+    <Content Include="webapp\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="webapp\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="webapp\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="webapp\static\scripts\jquery.validate.js" />
+    <Content Include="webapp\static\scripts\jquery.validate.min.js" />
+    <Content Include="webapp\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="webapp\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="webapp\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="webapp\static\scripts\respond.js" />
+    <Content Include="webapp\static\scripts\respond.min.js" />
+    <Content Include="webapp\static\scripts\_references.js" />
+    <Content Include="webapp\templates\about.html" />
+    <Content Include="webapp\templates\contact.html" />
+    <Content Include="webapp\templates\index.html" />
+    <Content Include="webapp\templates\layout.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

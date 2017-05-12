@@ -1,3 +1,9 @@
+class characterPerk(object):
+    name = "default char perk"
+    description = "Default description"
+    characterSpecific = NotImplemented #Some perks are specific to certain characters
+    perkNext = NotImplemented #intended for perk trees and upgradeable perks
+
 class characterClass(object):
     name = "Default placeable"
     description = "Default description"
@@ -8,8 +14,3 @@ class character(object):
     description = "Default description"
     charClass = characterClass()
 
-class characterPerk(object):
-    name = "default char perk"
-    description = "Default description"
-    characterSpecific = NotImplemented #Some perks are specific to certain characters
-    perkNext = NotImplemented #intended for perk trees and upgradeable perks

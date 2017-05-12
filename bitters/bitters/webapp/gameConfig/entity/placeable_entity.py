@@ -1,6 +1,6 @@
 #Entity configurations. 
-from char import characterClass
-from event import eventActor
+from gameEvents import eventActor
+from character import characterClass
 
 """
 Event driving philosophy: 
@@ -18,15 +18,26 @@ Almost all placeables will have events. Events are listed first from the Placeab
 
 """
 
-#Palceables can be buildings
-class placeable(object):
-    id = "Default ID"
-    name = "Default placeable"
+class placeableUpgradeType(object):
+    def __init__(self):
+        name = "Default placeable"
+        description = "Default description"
+
+class placeableUpgrade(object):
+    name = "Default upgrade"
     description = "Default description"
-    allowedUpgrades = [placeableUpgradeType()]
-    allowedCharacterClasses = [characterClass()]
-    #isEventActor = True #Default all placeables are events
-    currentEventActor = eventActor() #Default eventActor
+    upgradeType = placeableUpgradeType()    
+
+#Palceables can be buildings
+class placeableType(object):
+    def __init__(self):
+        id = "Default ID"
+        name = "Default placeable"
+        description = "Default description"
+        allowedUpgrades = [placeableUpgradeType()]
+        allowedCharacterClasses = [characterClass()]
+        #isEventActor = True #Default all placeables are events
+        currentEventActor = eventActor() #Default eventActor
     #TileType = Undefined as of yet
     
 
@@ -39,11 +50,3 @@ class placeable(object):
         event priority / event frequency
     """
 
-class placeableUpgradeType(object):
-    name = "Default placeable"
-    description = "Default description"
-
-class placeableUpgrade(object):
-    name = "Default upgrade"
-    description = "Default description"
-    upgradeType = placeableUpgradeType()    

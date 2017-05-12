@@ -3,7 +3,7 @@ This script runs the bitters application using a development server.
 """
 
 from os import environ
-from bitters import app
+from webapp import app
 
 if __name__ == '__main__':
     HOST = environ.get('SERVER_HOST', 'localhost')
