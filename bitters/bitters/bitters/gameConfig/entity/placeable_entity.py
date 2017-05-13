@@ -31,13 +31,13 @@ class placeableUpgrade(object):
 #Palceables can be buildings
 class placeableType(object):
     def __init__(self):
-        id = "Default ID"
-        name = "Default placeable"
-        description = "Default description"
-        allowedUpgrades = [placeableUpgradeType()]
-        allowedCharacterClasses = [characterClass()]
+        self.id = "Default ID"
+        self.name = "Default placeable"
+        self.description = "Default description"
+        self.allowedUpgrades = [] #placeableUpgradeType()
+        self.allowedCharacterClasses = [] #characterClass()
         #isEventActor = True #Default all placeables are events
-        currentEventActor = eventActor() #Default eventActor
+        self.currentEventActor = None  #Default eventActor
     #TileType = Undefined as of yet
     
 
