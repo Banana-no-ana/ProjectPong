@@ -5,3 +5,12 @@ G:\Projects\Bitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe.con
 G:\Projects\Bitters\bitters\bitters\bin\wfastcgi.py
 G:\Projects\Bitters\bitters\bitters\obj\Release\web.config
 G:\Projects\Bitters\bitters\bitters\obj\Release\web.debug.config
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.WebRole.dll
+G:\Projects\ProjectBitters\bitters\bitters\bin\AzureSetup.cfg
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe
+G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe.config
+G:\Projects\ProjectBitters\bitters\bitters\bin\wfastcgi.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Release\deployment-updated-orig-prefix.txt
+G:\Projects\ProjectBitters\bitters\bitters\ptvs_virtualenv_proxy.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Release\web.config
+G:\Projects\ProjectBitters\bitters\bitters\obj\Release\web.debug.config

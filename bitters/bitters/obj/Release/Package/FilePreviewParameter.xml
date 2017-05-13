@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="Bitters" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Projects\\Bitters\\bitters\\bitters\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Projects\\Bitters\\bitters\\bitters\\obj\\Release\\Package\\PackageTmp$" />
+  <parameter name="IIS Web Application Name" description="" value="bitters" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Projects\\ProjectBitters\\bitters\\bitters\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Projects\\ProjectBitters\\bitters\\bitters\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="InterpreterPath" description="" value="D:\Python27\python.exe" tags="">
     <parameterEntry kind="TextFile" scope="\\web\.config$" match="%INTERPRETERPATH%" />
