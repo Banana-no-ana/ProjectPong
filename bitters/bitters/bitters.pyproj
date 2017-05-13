@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bitters2 - Web Deploy.pubxml" />
+    <Content Include="bitters\static\content\normalize.css" />
+    <Content Include="bitters\static\content\skeleton.css" />
     <Content Include="bitters\templates\create.html" />
     <Content Include="bitters\templates\placeable.html" />
     <Content Include="bitters\templates\results.html" />

@@ -9,7 +9,7 @@ G:\Projects\ProjectBitters\bitters\bitters\bin\AzureSetup.cfg
 G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe
 G:\Projects\ProjectBitters\bitters\bitters\bin\Microsoft.PythonTools.AzureSetup.exe.config
 G:\Projects\ProjectBitters\bitters\bitters\bin\wfastcgi.py
-G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.config
-G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.debug.config
 G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\deployment-updated-orig-prefix.txt
 G:\Projects\ProjectBitters\bitters\bitters\ptvs_virtualenv_proxy.py
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.config
+G:\Projects\ProjectBitters\bitters\bitters\obj\Debug\web.debug.config

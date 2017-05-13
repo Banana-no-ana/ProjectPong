@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="bitters" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="bitters2" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^G:\\Projects\\ProjectBitters\\bitters\\bitters\\obj\\Debug\\Package\\PackageTmp$" />
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^G:\\Projects\\ProjectBitters\\bitters\\bitters\\obj\\Debug\\Package\\PackageTmp$" />
   </parameter>
