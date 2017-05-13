@@ -13,7 +13,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    /*max-width: 280px;*/
 }
 
 /* styles for validation helpers */
@@ -43,8 +43,17 @@ input[type="checkbox"].input-validation-error {
 
 .entity_block{
     float:left;
+    margin-left: 30px;
 }
 
 .new_entity {
     width:30%;
+}
+
+.headerDivider {
+    border-left: 1px solid #38546d;
+    background: #16222c;
+    width: 1px;
+    height: 400px;    
+    top: 10px;
 }

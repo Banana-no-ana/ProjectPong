@@ -170,7 +170,8 @@ def placeable():
     
     return render_template('placeable.html', 
                             title = 'Placeables', 
-                            form = form)
+                            form = form, 
+                            year=datetime.now().year)
 
 
 def createDB(client, DB):    
