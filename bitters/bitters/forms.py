@@ -16,8 +16,8 @@ class VoteForm(Form):
 #Intended for new placeables, should still get a selectable field though. 
 #TODO: Make some new selectable fields for placeable type
 class PlaceableForm(Form):
-    placeableName = StringField('Placeable Name', [validators.Length(min=4, max=20)])
-    description = StringField('Describe the intention of this placeable', [validators.Length(min=4, max=250)])
+    placeableName = StringField('Name', [validators.Length(min=4, max=20)])
+    description = StringField('Description', [validators.Length(min=4, max=250)])
     #compatible character classes = undefined
     #compatible upgrade types = undefined
 

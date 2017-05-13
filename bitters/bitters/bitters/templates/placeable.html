@@ -8,15 +8,22 @@
 <body>
     {% extends "layout.html" %}
     {% block content %}
-    <h2>Input a new placeable over here</h2>
-    <form action="" method="post" name="placeable">
-        {{form.hidden_tag()}}
-        {{ form.placeableName.label }} : {{ form.placeableName }}
-        <br />        
-        {{ form.description.label }} : {{ form.description }}        
-        <p></p>
-        <button class="btn btn-primary" type="submit">Submit new</button>
-    </form>
+    <div class="entity_block new_entity">
+        <h2>New Placeable</h2>
+        <form action="" method="post" name="placeable">
+            {{form.hidden_tag()}}
+            {{ form.placeableName.label }} 
+            {{ form.placeableName }}
+            <br />
+            {{ form.description.label }} 
+            {{ form.description }}
+            <p></p>
+            <button class="btn btn-primary" type="submit">Submit new</button>
+        </form>
+    </div>
+    <div class="entity_block">
+        <h2>Existing Placeables</h2>
+    </div>
     {% endblock %}
 </body>
 </html>
