@@ -170,13 +170,13 @@ def placeable():
     #TODO: Populate all the existing placeables
 
     #Grab the first one for now. See about it later
-    docs = client.ReadDocuments(coll['_self'])
-    sampleDoc = docs.__iter__().next()
+    docs = client.ReadDocuments(coll['_self']).__iter__()
+    #sampleDoc = docs.__iter__().next()
     
     return render_template('placeable.html', 
                             title = 'Placeables', 
                             form = form, 
-                            existing = sampleDoc,
+                            placeables = docs,
                             year=datetime.now().year)
 
 

@@ -27,10 +27,13 @@
     <div class="entity_block">
         <h2>Existing Placeables</h2>
         <table>
+            {% for placeable in placeables %}
             <tr>
-                <td>Name: {{ existing.name }}</td>
-                <td>Description : {{ existing.description }} </td>
+                <td>Name: {{ placeable.name }}</td>
+                <td>Description : {{ placeable.description }} </td>
+                <td>ThirdThing : {{ placeable.doesntexist }} </td>
             </tr>
+            {% endfor %}
         </table>
     </div>
     <p></p>
