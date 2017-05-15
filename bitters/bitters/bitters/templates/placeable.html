@@ -21,7 +21,9 @@
                     {{ form.description.label }}
                     {{ form.description(class_="u-full-width") }}
                 </div>
-                <button class="button-primary" type="submit">Submit new</button>
+                    {{ form.del_entity }}
+                <button class="button-primary" type="submit">Upsert</button>
+                <button class="button" type="submit" id="remove_entity" >Remove</button>
             </form>
         </div>
     </div>    

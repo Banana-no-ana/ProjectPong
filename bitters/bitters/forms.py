@@ -1,4 +1,4 @@
-from flask.ext.wtf import Form, BooleanField, StringField, validators, SelectField, TextAreaField
+from flask.ext.wtf import Form, BooleanField, StringField, validators, SelectField, TextAreaField, HiddenField
 from wtforms import RadioField
 
 class VoteForm(Form):
@@ -18,6 +18,7 @@ class VoteForm(Form):
 class PlaceableForm(Form):
     placeableName = StringField('Name', [validators.Length(min=4, max=20)])
     description = TextAreaField('Description', [validators.Length(min=4, max=250)])
+    del_entity = HiddenField('del_entity')
     #compatible character classes = undefined
     #compatible upgrade types = undefined
 

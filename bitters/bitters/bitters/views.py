@@ -161,16 +161,25 @@ def placeable():
     if form.validate_on_submit():
         #form has been validated. We can try creating a new document now. 
         #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
-        placeable_object =  placeableType()
-        placeable_object.name = form.placeableName.data
-        placeable_object.id = form.placeableName.data
-        placeable_object.description = form.description.data
+        if form.del_entity.data == "Delete":
+            del_doc_iter = client.QueryDocuments(coll['_self'], 'select * from c where c.id = @id', { 'id' : form.placeableName.data }).fetch_next_block()
+            del_doc_iter = client.QueryDocuments(coll['_self'], {
+            'query': 'select * from c where c.id = @id',
+            'parameters': [{ 'name':'@id', 'value': form.placeableName.data} ] } ).fetch_next_block()
+            del_doc_id = del_doc_iter.__iter__().next()['_self']
+            
+            client.DeleteDocument(del_doc_id)
+        else:            
+            placeable_object =  placeableType()
+            placeable_object.name = form.placeableName.data
+            placeable_object.id = form.placeableName.data
+            placeable_object.description = form.description.data
 
-        document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
+            document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
 
     #Grab the first one for now. See about it later
     docs = client.ReadDocuments(coll['_self']).__iter__()
-    #sampleDoc = docs.__iter__().next()
+    #sampleDoc = docs.next()
     
     return render_template('placeable.html', 
                             title = 'Placeables', 
