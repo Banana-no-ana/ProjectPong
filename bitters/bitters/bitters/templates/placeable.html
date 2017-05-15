@@ -8,33 +8,36 @@
 <body>
     {% extends "layout.html" %}
     {% block content %}
-    <div class="entity_block new_entity">
-        <form action="" method="post" name="placeable">
-            <h2>New Placeable</h2>
-            {{form.hidden_tag()}}
-            <div class="row">
-                {{ form.placeableName.label }}        
-                {{ form.placeableName(class_="u-full-width") }}
-            </div>       
-            <div class="row">
-                {{ form.description.label }}
-                {{ form.description(class_="u-full-width") }}
-            </div>
-            <button class="button-primary" type="submit">Submit new</button>
-        </form>
-    </div>
-    <div class="headerDivider entity_block"></div>
     <div class="entity_block">
+        <div class="new_entity">
+            <form action="" method="post" name="placeable">
+                <h2>New Placeable</h2>
+                {{form.hidden_tag()}}
+                <div class="row">
+                    {{ form.placeableName.label }}
+                    {{ form.placeableName(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    {{ form.description.label }}
+                    {{ form.description(class_="u-full-width") }}
+                </div>
+                <button class="button-primary" type="submit">Submit new</button>
+            </form>
+        </div>
+    </div>    
+    <div class="entity_block existing_entities">
         <h2>Existing Placeables</h2>
+        {% for placeable in placeables %}
         <table>
-            {% for placeable in placeables %}
             <tr>
-                <td>Name: {{ placeable.name }}</td>
-                <td>Description : {{ placeable.description }} </td>
-                <td>ThirdThing : {{ placeable.doesntexist }} </td>
+                <td>Name</td>
+                <td><b>{{ placeable.name }}</b></td>
+            <tr>
+                <td>Description</td>
+                <td>{{ placeable.description }}</td>
             </tr>
-            {% endfor %}
         </table>
+            {% endfor %}        
     </div>
     <p></p>
     {% endblock %}
