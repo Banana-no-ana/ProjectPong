@@ -17,7 +17,7 @@ class VoteForm(Form):
 #TODO: Make some new selectable fields for placeable type
 class PlaceableForm(Form):
     placeableName = StringField('Name', [validators.Length(min=4, max=20)])
-    description = TextAreaField('Description', [validators.Length(min=4, max=250)])
+    new_description = TextAreaField('Description', [validators.Length(min=4, max=250)])
     del_entity = HiddenField('del_entity')
     #compatible character classes = undefined
     #compatible upgrade types = undefined

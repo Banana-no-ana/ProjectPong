@@ -169,13 +169,15 @@ def placeable():
             del_doc_id = del_doc_iter.__iter__().next()['_self']
             
             client.DeleteDocument(del_doc_id)
+            form.del_entity.data = ""
         else:            
             placeable_object =  placeableType()
             placeable_object.name = form.placeableName.data
             placeable_object.id = form.placeableName.data
-            placeable_object.description = form.description.data
+            placeable_object.description = form.new_description.data
 
             document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
+            
 
     #Grab the first one for now. See about it later
     docs = client.ReadDocuments(coll['_self']).__iter__()

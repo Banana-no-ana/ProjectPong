@@ -18,8 +18,8 @@
                     {{ form.placeableName(class_="u-full-width") }}
                 </div>
                 <div class="row">
-                    {{ form.description.label }}
-                    {{ form.description(class_="u-full-width") }}
+                    {{ form.new_description.label }}
+                    {{ form.new_description(class_="u-full-width") }}
                 </div>
                     {{ form.del_entity }}
                 <button class="button-primary" type="submit">Upsert</button>
@@ -30,7 +30,7 @@
     <div class="entity_block existing_entities">
         <h2>Existing Placeables</h2>
         {% for placeable in placeables %}
-        <table>
+        <table id="existing_entity_table">
             <tr>
                 <td>Name</td>
                 <td><b>{{ placeable.name }}</b></td>
