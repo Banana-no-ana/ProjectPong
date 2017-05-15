@@ -166,8 +166,7 @@ def placeable():
         placeable_object.id = form.placeableName.data
         placeable_object.description = form.description.data
 
-        document = client.CreateDocument(coll['_self'], placeable_object.__dict__)
-    #TODO: Populate all the existing placeables
+        document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
 
     #Grab the first one for now. See about it later
     docs = client.ReadDocuments(coll['_self']).__iter__()
