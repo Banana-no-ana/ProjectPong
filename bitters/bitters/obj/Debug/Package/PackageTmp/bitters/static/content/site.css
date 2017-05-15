@@ -43,12 +43,22 @@ input[type="checkbox"].input-validation-error {
 
 .entity_block{
     float:left;
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
+
 .new_entity {
-    width:30%;
+    /*width:30%;*/ 
+    position:fixed;
+    top: 74px;
+    max-width:40%;
 }
+
+.existing_entities {
+    width:72%;    
+    margin-left:35%
+}
+
 
 .headerDivider {
     border-left: 1px solid #38546d;

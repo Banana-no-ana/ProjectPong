@@ -145,32 +145,38 @@ def placeable():
     # Set up the clients to query for actors in these collections. 
     client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
     form = forms.PlaceableForm()
-    # Read databases and take first since id should not be duplicated.
-    if form.validate_on_submit():
-        try:
-            db = next((data for data in client.ReadDatabases() if data['id'] == config.BITTERS_CONFIG))
-        except: #DB doesn't exist
-            createDB(client, config.BITTERS_CONFIG)
 
-        # Read collections and take first since id should not be duplicated.
-        try:
-            coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
-        except:
-            createCollection(client, db, config.PLACEABLES)
-        
+    #Try accesesing the database
+    try:
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.BITTERS_CONFIG))
+    except: #DB doesn't exist
+        createDB(client, config.BITTERS_CONFIG)
+    
+    # Get the collection from the database. 
+    try:
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
+    except:
+        createCollection(client, db, config.PLACEABLES)
+
+    if form.validate_on_submit():
+        #form has been validated. We can try creating a new document now. 
+        #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
         placeable_object =  placeableType()
         placeable_object.name = form.placeableName.data
         placeable_object.id = form.placeableName.data
         placeable_object.description = form.description.data
 
         document = client.CreateDocument(coll['_self'], placeable_object.__dict__)
-    ##TODO: Populate all the existing placeables
-    ##TODO: Add a place to input the new placeable
-    
+    #TODO: Populate all the existing placeables
+
+    #Grab the first one for now. See about it later
+    docs = client.ReadDocuments(coll['_self']).__iter__()
+    #sampleDoc = docs.__iter__().next()
     
     return render_template('placeable.html', 
                             title = 'Placeables', 
                             form = form, 
+                            placeables = docs,
                             year=datetime.now().year)
 
 
