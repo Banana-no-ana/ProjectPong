@@ -30,7 +30,7 @@
     <div class="entity_block existing_entities">
         <h2>Existing Placeables</h2>
         {% for placeable in placeables %}
-        <table id="existing_entity_table">
+        <table class="existing_entity_table">
             <tr>
                 <td>Name</td>
                 <td><b>{{ placeable.name }}</b></td>
@@ -39,7 +39,7 @@
                 <td>{{ placeable.description }}</td>
             </tr>
         </table>
-            {% endfor %}        
+        {% endfor %}        
     </div>
     <p></p>
     {% endblock %}
