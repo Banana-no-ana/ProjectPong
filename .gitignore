@@ -25,6 +25,8 @@ var/
 *.egg
 bitters/bitters/obj/
 bitters/obj/
+bitters/bitters/web.debug.config
+bitters/bitters/obj/Debug/web.debug.config
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
