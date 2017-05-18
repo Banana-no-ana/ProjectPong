@@ -6,8 +6,11 @@ from datetime import datetime
 from flask import render_template
 from bitters import app
 from forms import VoteForm
+import forms
 import config
+#from webapp.gameConfig.entity import placeable_entitity
 import pydocumentdb.document_client as document_client
+
 
 @app.route('/')
 @app.route('/home')
@@ -118,3 +121,77 @@ def vote():
             title = 'Vote',
             year=datetime.now().year,
             form = form)
+
+
+@app.route('/actors', methods=['GET', 'POST'])
+def viewactors(): 
+    default_actors = ['blacksmith', 'butler', 'area_boss', 'king', 'area_minion1', 'area_minion2', 'area_minion3', 'merchant']
+    
+    # Set up the clients to query for actors in these collections. 
+    client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+    # Read databases and take first since id should not be duplicated.
+    db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+
+    # Read collections and take first since id should not be duplicated.
+    coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+
+    # Read documents and take first since id should not be duplicated.
+    doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+
+
+@app.route('/placeable', methods=['GET', 'POST'])
+def placeable():  
+    from bitters.gameConfig.entity.placeable_entity import placeableType
+    # Set up the clients to query for actors in these collections. 
+    client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+    form = forms.PlaceableForm()
+
+    #Try accesesing the database
+    try:
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.BITTERS_CONFIG))
+    except: #DB doesn't exist
+        createDB(client, config.BITTERS_CONFIG)
+    
+    # Get the collection from the database. 
+    try:
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
+    except:
+        createCollection(client, db, config.PLACEABLES)
+
+    if form.validate_on_submit():
+        #form has been validated. We can try creating a new document now. 
+        #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
+        if form.del_entity.data == "Delete":
+            del_doc_iter = client.QueryDocuments(coll['_self'], 'select * from c where c.id = @id', { 'id' : form.placeableName.data }).fetch_next_block()
+            del_doc_iter = client.QueryDocuments(coll['_self'], {
+            'query': 'select * from c where c.id = @id',
+            'parameters': [{ 'name':'@id', 'value': form.placeableName.data} ] } ).fetch_next_block()
+            del_doc_id = del_doc_iter.__iter__().next()['_self']
+            
+            client.DeleteDocument(del_doc_id)
+            form.del_entity.data = ""
+        else:            
+            placeable_object =  placeableType()
+            placeable_object.name = form.placeableName.data
+            placeable_object.id = form.placeableName.data
+            placeable_object.description = form.new_description.data
+
+            document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
+            
+
+    #Grab the first one for now. See about it later
+    docs = client.ReadDocuments(coll['_self']).__iter__()
+    #sampleDoc = docs.next()
+    
+    return render_template('placeable.html', 
+                            title = 'Placeables', 
+                            form = form, 
+                            placeables = docs,
+                            year=datetime.now().year)
+
+
+def createDB(client, DB):    
+    db = client.CreateDatabase({ 'id': DB})
+
+def createCollection(client, db, collectionName):
+    collection = client.CreateCollection(db['_self'],{ 'id': collectionName })

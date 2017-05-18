@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+    <div class="entity_block">
+        <div class="new_entity">
+            <form action="" method="post" name="placeable">
+                <h2>New Placeable</h2>
+                {{form.hidden_tag()}}
+                <div class="row">
+                    {{ form.placeableName.label }}
+                    {{ form.placeableName(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    {{ form.new_description.label }}
+                    {{ form.new_description(class_="u-full-width") }}
+                </div>
+                    {{ form.del_entity }}
+                <button class="button-primary" type="submit">Upsert</button>
+                <button class="button" type="submit" id="remove_entity" >Remove</button>
+            </form>
+        </div>
+    </div>    
+    <div class="entity_block existing_entities">
+        <h2>Existing Placeables</h2>
+        {% for placeable in placeables %}
+        <table class="existing_entity_table">
+            <tr>
+                <td>Name</td>
+                <td><b>{{ placeable.name }}</b></td>
+            <tr>
+                <td>Description</td>
+                <td>{{ placeable.description }}</td>
+            </tr>
+        </table>
+        {% endfor %}        
+    </div>
+    <p></p>
+    {% endblock %}
+</body>
+</html>

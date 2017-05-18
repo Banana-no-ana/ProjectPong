@@ -23,6 +23,9 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+bitters/bitters/obj/**/*
+bitters/bitters/web.debug.config
+bitters/bitters/obj/Debug/web.debug.config
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -87,22 +90,5 @@ ENV/
 
 # Rope project settings
 .ropeproject
-/bitters/bitters/obj/Debug/__main__.py
-/bitters/bitters/obj/Debug/__init__.py
-/bitters/bitters/obj/Debug/_WPPLastBuildInfo.txt
-/bitters/bitters/obj/Debug/websiteparameters.xml
-/bitters/bitters/obj/Debug/web.debug.config
-/bitters/bitters/obj/Debug/web.config
-/bitters/bitters/obj/Debug/visualstudio_py_util.py
-/bitters/bitters/obj/Debug/visualstudio_py_repl.py
-/bitters/bitters/obj/Debug/visualstudio_py_debugger.py
-/bitters/bitters/obj/Debug/TransformWebConfig
-/bitters/bitters/obj/Debug/Package
-/bitters/bitters/obj/Debug/deployment-updated-orig-prefix.txt
-/bitters/bitters/obj/Debug/CSAutoParameterize.parameters.xml
-/bitters/bitters/obj/Debug/CSAutoParameterize
-/bitters/bitters/obj/Debug/attach_server.py
-/bitters/bitters/obj/Debug
 /bitters/.vs/config/applicationhost.config
-/bitters/.vs/config
-/bitters
+/bitters/bitters/web.config
