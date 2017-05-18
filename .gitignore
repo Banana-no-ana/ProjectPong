@@ -23,8 +23,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-bitters/bitters/obj/
-bitters/obj/
+bitters/bitters/obj/**/*
 bitters/bitters/web.debug.config
 bitters/bitters/obj/Debug/web.debug.config
 
