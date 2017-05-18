@@ -1,3 +1,0 @@
-G:\Projects\ProjectBitters\bitters\bitters\obj\VirtualEnv\deployment-updated-orig-prefix.txt
-G:\Projects\ProjectBitters\bitters\bitters\obj\VirtualEnv\web.config
-G:\Projects\ProjectBitters\bitters\bitters\obj\VirtualEnv\web.debug.config
