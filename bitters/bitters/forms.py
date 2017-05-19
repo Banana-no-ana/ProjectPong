@@ -1,17 +1,6 @@
 from flask.ext.wtf import Form, BooleanField, StringField, validators, SelectField, TextAreaField, HiddenField
 from wtforms import RadioField
 
-class VoteForm(Form):
-    deploy_preference  = RadioField('Deployment Preference', choices=[
-        ('Web Site', 'Web Site'),
-        ('Cloud Service', 'Cloud Service'),
-        ('Virtual Machine', 'Virtual Machine')], default='Cloud Service')
-    deploy_preference2 = SelectField(u'Deployment Preference', choices=[
-        ('Web Site', 'Web Site'),
-        ('Cloud Service', 'Cloud Service'),
-        ('Virtual Machine', 'Virtual Machine')], default='Cloud Service')
-
-
 
 #Intended for new placeables, should still get a selectable field though. 
 #TODO: Make some new selectable fields for placeable type

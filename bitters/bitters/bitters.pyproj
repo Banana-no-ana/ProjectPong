@@ -81,10 +81,7 @@
     <Content Include="bitters\static\scripts\bitters.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="bitters\templates\create.html" />
     <Content Include="bitters\templates\placeable.html" />
-    <Content Include="bitters\templates\results.html" />
-    <Content Include="bitters\templates\vote.html" />
     <Content Include="requirements.txt" />
     <Content Include="bitters\static\content\bootstrap.css" />
     <Content Include="bitters\static\content\bootstrap.min.css" />
