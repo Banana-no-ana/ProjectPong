@@ -24,9 +24,10 @@ class placeableUpgradeType(object):
         description = "Default description"
 
 class placeableUpgrade(object):
-    name = "Default upgrade"
-    description = "Default description"
-    upgradeType = placeableUpgradeType()    
+    def __init__(self):
+        name = "Default upgrade"
+        description = "Default description"
+        upgradeType = placeableUpgradeType()    
 
 #Palceables can be buildings
 class placeableType(object):

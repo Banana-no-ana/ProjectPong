@@ -70,6 +70,9 @@ def setup_collection(CollectionName):
         coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == CollectionName))    
     except:
         createCollection(client, db, CollectionName)
+
+    #Set the current collection back to the one we just created
+    coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == CollectionName))    
     
     return client, coll
 
@@ -79,7 +82,10 @@ def del_entity(client, collection, id):
                 'query': 'select * from c where c.id = @id',
                 'parameters': [{ 'name':'@id', 'value': id} ] } ).fetch_next_block()
     del_doc_id = del_doc_iter.__iter__().next()['_self']            
+    ##TODO: Figure out what to do when the entity doesn't exist
     client.DeleteDocument(del_doc_id)
+
+    
 
 @app.route('/placeable', methods=['GET', 'POST'])
 def placeable():  
@@ -108,6 +114,37 @@ def placeable():
                             title = 'Placeables', 
                             form = form, 
                             placeables = docs,
+                            year=datetime.now().year)
+
+
+@app.route('/placeableUpgradeTypes', methods=['GET', 'POST'])
+def placeableUpgradeTypes():  
+    from bitters.gameConfig.entity.placeable_entity import placeableUpgradeType
+    client, coll = setup_collection(config.PLACEABLE_UPGRADE_TYPE)    
+    form = forms.placeableUpgradeTypeForm()
+    
+    if form.validate_on_submit():
+        #form has been validated. We can try creating a new document now. 
+        #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
+        if form.del_entity.data == "Delete":
+            del_entity(client, coll, form.name.data)            
+            form.del_entity.data = ""
+        else:            
+            obj =  placeableUpgradeType()
+            obj.name = form.name.data
+            obj.id = form.name.data
+            obj.description = form.description.data
+
+            document = client.UpsertDocument(coll['_self'], obj.__dict__)            
+
+    #Get all documents and populate on the screen
+    docs = client.ReadDocuments(coll['_self']).__iter__()    
+    
+    return render_template('placeableupgradetype.html', 
+                            title = 'Placeable Upgrade Types', 
+                            entityName = 'placeableUpgradeTypes',
+                            form = form, 
+                            existings = docs,
                             year=datetime.now().year)
 
 def createDB(client, DB):    

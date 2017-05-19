@@ -12,7 +12,7 @@ class PlaceableForm(Form):
     #compatible upgrade types = undefined
 
 class placeableUpgradeTypeForm(Form):
-    typeName = StringField('Type Name', [validators.Length(min=4, max=20)])
+    name = StringField('Type Name', [validators.Length(min=4, max=20)])
     description = TextAreaField('Describe the Intention of this type', [validators.Length(min=4, max=250)])
     del_entity = HiddenField('del_entity')
     
