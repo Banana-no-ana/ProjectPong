@@ -147,6 +147,37 @@ def placeableUpgradeTypes():
                             existings = docs,
                             year=datetime.now().year)
 
+
+@app.route('/placeable_upgrade', methods=['GET', 'POST'])
+def placeable_upgrade():  
+    from bitters.gameConfig.entity.placeable_entity import placeableUpgrade
+    client, coll = setup_collection(config.PLACEABLE_UPGRADE)    
+    form = forms.placeableUpgradeForm()
+    
+    if form.validate_on_submit():
+        #form has been validated. We can try creating a new document now. 
+        #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
+        if form.del_entity.data == "Delete":
+            del_entity(client, coll, form.name.data)            
+            form.del_entity.data = ""
+        else:            
+            obj =  placeableUpgrade()
+            obj.name = form.name.data
+            obj.id = form.name.data
+            obj.description = form.description.data
+
+            document = client.UpsertDocument(coll['_self'], obj.__dict__)            
+
+    #Get all documents and populate on the screen
+    docs = client.ReadDocuments(coll['_self']).__iter__()    
+    
+    return render_template('placeable_upgrade.html', 
+                            title = 'Placeable Upgrades', 
+                            entityName = 'placeable_upgrade',
+                            form = form, 
+                            existings = docs,
+                            year=datetime.now().year)
+
 def createDB(client, DB):    
     db = client.CreateDatabase({ 'id': DB})
 
