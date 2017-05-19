@@ -82,7 +82,7 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="bitters\templates\placeable_upgrade.html" />
-    <Content Include="bitters\templates\placeableupgradetype.html" />
+    <Content Include="bitters\templates\placeable_upgrade_type.html" />
     <Content Include="bitters\templates\placeable.html" />
     <Content Include="requirements.txt" />
     <Content Include="bitters\static\content\bootstrap.css" />

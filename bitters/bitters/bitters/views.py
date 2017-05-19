@@ -117,8 +117,8 @@ def placeable():
                             year=datetime.now().year)
 
 
-@app.route('/placeableUpgradeTypes', methods=['GET', 'POST'])
-def placeableUpgradeTypes():  
+@app.route('/placeable_upgrade_type', methods=['GET', 'POST'])
+def placeable_upgrade_type():  
     from bitters.gameConfig.entity.placeable_entity import placeableUpgradeType
     client, coll = setup_collection(config.PLACEABLE_UPGRADE_TYPE)    
     form = forms.placeableUpgradeTypeForm()
@@ -135,14 +135,14 @@ def placeableUpgradeTypes():
             obj.id = form.name.data
             obj.description = form.description.data
 
-            document = client.UpsertDocument(coll['_self'], obj.__dict__)            
+            document = client.UpsertDocument(coll['_self'], obj.__dict__)
 
     #Get all documents and populate on the screen
     docs = client.ReadDocuments(coll['_self']).__iter__()    
     
-    return render_template('placeableupgradetype.html', 
+    return render_template('placeable_upgrade_type.html', 
                             title = 'Placeable Upgrade Types', 
-                            entityName = 'placeableUpgradeTypes',
+                            entityName = 'placeable_upgrade_type',
                             form = form, 
                             existings = docs,
                             year=datetime.now().year)
