@@ -6,4 +6,5 @@ DOCUMENTDB_KEY = 'QklkX11WdMArVi2RswGt3JVzCoYUazDqAWvl8QaygGl6DEHkMUldZEGa2WtJyR
 
 BITTERS_CONFIG = 'bitters config'
 PLACEABLES = 'placeables'
-
+PLACEABLE_UPGRADE_TYPE = 'placeable_upgrade_type'
+PLACEABLE_UPGRADE = 'placeable_upgrade'

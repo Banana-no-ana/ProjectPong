@@ -55,13 +55,9 @@ def viewactors():
     # Read documents and take first since id should not be duplicated.
     doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
 
-
-@app.route('/placeable', methods=['GET', 'POST'])
-def placeable():  
-    from bitters.gameConfig.entity.placeable_entity import placeableType
+def setup_collection(CollectionName):
     # Set up the clients to query for actors in these collections. 
     client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
-    form = forms.PlaceableForm()
 
     #Try accesesing the database
     try:
@@ -71,21 +67,31 @@ def placeable():
     
     # Get the collection from the database. 
     try:
-        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.PLACEABLES))    
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == CollectionName))    
     except:
-        createCollection(client, db, config.PLACEABLES)
+        createCollection(client, db, CollectionName)
+    
+    return client, coll
 
+def del_entity(client, collection, id):
+    del_doc_iter = client.QueryDocuments(collection['_self'], 'select * from c where c.id = @id', { 'id' : id }).fetch_next_block()
+    del_doc_iter = client.QueryDocuments(collection['_self'], {
+                'query': 'select * from c where c.id = @id',
+                'parameters': [{ 'name':'@id', 'value': id} ] } ).fetch_next_block()
+    del_doc_id = del_doc_iter.__iter__().next()['_self']            
+    client.DeleteDocument(del_doc_id)
+
+@app.route('/placeable', methods=['GET', 'POST'])
+def placeable():  
+    from bitters.gameConfig.entity.placeable_entity import placeableType
+    client, coll = setup_collection(config.PLACEABLES)    
+    form = forms.PlaceableForm()
+    
     if form.validate_on_submit():
         #form has been validated. We can try creating a new document now. 
         #TODO: Check for the ID/name to see if it exists first before submitting. Otherwise gonna throw error. 
         if form.del_entity.data == "Delete":
-            del_doc_iter = client.QueryDocuments(coll['_self'], 'select * from c where c.id = @id', { 'id' : form.placeableName.data }).fetch_next_block()
-            del_doc_iter = client.QueryDocuments(coll['_self'], {
-            'query': 'select * from c where c.id = @id',
-            'parameters': [{ 'name':'@id', 'value': form.placeableName.data} ] } ).fetch_next_block()
-            del_doc_id = del_doc_iter.__iter__().next()['_self']
-            
-            client.DeleteDocument(del_doc_id)
+            del_entity(client, coll, form.placeableName.data)            
             form.del_entity.data = ""
         else:            
             placeable_object =  placeableType()
@@ -93,19 +99,16 @@ def placeable():
             placeable_object.id = form.placeableName.data
             placeable_object.description = form.new_description.data
 
-            document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)
-            
+            document = client.UpsertDocument(coll['_self'], placeable_object.__dict__)            
 
-    #Grab the first one for now. See about it later
-    docs = client.ReadDocuments(coll['_self']).__iter__()
-    #sampleDoc = docs.next()
+    #Get all documents and populate on the screen
+    docs = client.ReadDocuments(coll['_self']).__iter__()    
     
     return render_template('placeable.html', 
                             title = 'Placeables', 
                             form = form, 
                             placeables = docs,
                             year=datetime.now().year)
-
 
 def createDB(client, DB):    
     db = client.CreateDatabase({ 'id': DB})

@@ -14,10 +14,12 @@ class PlaceableForm(Form):
 class placeableUpgradeTypeForm(Form):
     typeName = StringField('Type Name', [validators.Length(min=4, max=20)])
     description = TextAreaField('Describe the Intention of this type', [validators.Length(min=4, max=250)])
+    del_entity = HiddenField('del_entity')
     
 class placeableUpgradeForm(Form):
     typeName = StringField('Type Name', [validators.Length(min=4, max=20)])
     description = TextAreaField('Describe the Intention of this upgrade', [validators.Length(min=4, max=250)])
+    del_entity = HiddenField('del_entity')
     #upgradeType = undefined
 
 class CharacterClassForm(Form):
