@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+    <div class="entity_block">
+        <div class="new_entity">
+            <form action="" method="post" name="matches">
+                <h2>New Match</h2>
+                {{form.hidden_tag()}}
+                <div class="row">
+                    {{ form.winner.label }}
+                    {{ form.winner(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    {{ form.loser.label }}
+                    {{ form.loser(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    [Optional Score] Winner : Loser                    
+                    <br />{{ form.win_score }} : {{ form.los_score }}
+                </div>
+                
+                    {{ form.del_entity }}
+                <button class="button-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>    
+    <div class="entity_block existing_entities">
+        <h2>Recent Matches</h2>
+        {% for existing in existings %}
+        <table class="existing_entity_table">
+            <tr>
+                <td>Winner > Loser </td>
+                <td><b>{{ existing.winner }} > {{ existing.loser }} </b></td>
+            <tr>
+                <td>Score</td>
+                <td>{{ existing.win_score }} : {{ existing.los_score }} </td>
+            </tr>
+        </table>
+        {% endfor %}        
+    </div>
+    <p></p>
+    {% endblock %}
+</body>
+</html>

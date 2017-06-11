@@ -5,7 +5,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>41f722f9-6695-4290-b579-cd6b4facff79</ProjectGuid>
-    <ProjectHome>.</ProjectHome>
+    <ProjectHome>
+    </ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>runserver.py</StartupFile>
     <SearchPath>
@@ -16,10 +17,10 @@
     <StaticUriPattern>^/static/.*</StaticUriPattern>
     <StaticUriRewrite>^/$(MSBuildProjectName)/static/.*</StaticUriRewrite>
     <PythonWsgiHandler>$(MSBuildProjectName).app</PythonWsgiHandler>
-    <Name>bitters</Name>
+    <Name>pong</Name>
     <RootNamespace>bitters</RootNamespace>
-    <NameOfLastUsedPublishProfile>bitters2 - Web Deploy</NameOfLastUsedPublishProfile>
-    <InterpreterId>{2ce4c3f2-8c4f-4989-80d9-b05e4ee5bf8b}</InterpreterId>
+    <NameOfLastUsedPublishProfile>ProjectPong - Web Deploy</NameOfLastUsedPublishProfile>
+    <InterpreterId>{7253ac9d-c9ad-4c8d-8d2d-eb42a71131d1}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -36,22 +37,19 @@
     <OutputPath>bin\VirtualEnv\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="bitters\gameConfig\entity\character.py">
+    <Compile Include="pong\gameConfig\pong_controller\match_controller.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\gameEvents.py">
+    <Compile Include="pong\gameConfig\pong_controller\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\placeable_entity.py">
+    <Compile Include="pong\gameConfig\pong_entity\entities.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\tiles.py">
+    <Compile Include="pong\gameConfig\pong_entity\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="bitters\gameConfig\entity\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="bitters\gameConfig\__init__.py">
+    <Compile Include="pong\gameConfig\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="forms.py">
@@ -61,63 +59,75 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="runserver.py" />
-    <Compile Include="bitters\__init__.py" />
-    <Compile Include="bitters\views.py" />
+    <Compile Include="pong\__init__.py" />
+    <Compile Include="pong\views.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bitters\" />
-    <Folder Include="bitters\gameConfig\" />
-    <Folder Include="bitters\gameConfig\entity\" />
-    <Folder Include="bitters\static\" />
-    <Folder Include="bitters\static\content\" />
-    <Folder Include="bitters\static\fonts\" />
-    <Folder Include="bitters\static\scripts\" />
-    <Folder Include="bitters\templates\" />
+    <Folder Include="pong\" />
+    <Folder Include="pong\gameConfig\" />
+    <Folder Include="pong\gameConfig\pong_controller\" />
+    <Folder Include="pong\gameConfig\pong_entity\" />
+    <Folder Include="pong\static\" />
+    <Folder Include="pong\static\content\" />
+    <Folder Include="pong\static\fonts\" />
+    <Folder Include="pong\static\scripts\" />
+    <Folder Include="pong\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bitters2 - Web Deploy.pubxml" />
-    <Content Include="bitters\static\content\normalize.css" />
-    <Content Include="bitters\static\content\skeleton.css" />
-    <Content Include="bitters\static\scripts\bitters.js">
+    <Content Include="pong\static\content\normalize.css" />
+    <Content Include="pong\static\content\skeleton.css" />
+    <Content Include="pong\static\scripts\bitters.js">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="bitters\templates\placeable_upgrade.html" />
-    <Content Include="bitters\templates\placeable_upgrade_type.html" />
-    <Content Include="bitters\templates\placeable.html" />
+    <Content Include="pong\templates\ranking.html" />
+    <Content Include="pong\templates\matches.html" />
+    <Content Include="pong\templates\signup.html" />
+    <None Include="ProjectPong - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
-    <Content Include="bitters\static\content\bootstrap.css" />
-    <Content Include="bitters\static\content\bootstrap.min.css" />
-    <Content Include="bitters\static\content\site.css" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="bitters\static\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="bitters\static\scripts\bootstrap.js" />
-    <Content Include="bitters\static\scripts\bootstrap.min.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.min.js" />
-    <Content Include="bitters\static\scripts\jquery-1.10.2.min.map" />
-    <Content Include="bitters\static\scripts\jquery.validate-vsdoc.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.min.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="bitters\static\scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="bitters\static\scripts\modernizr-2.6.2.js" />
-    <Content Include="bitters\static\scripts\respond.js" />
-    <Content Include="bitters\static\scripts\respond.min.js" />
-    <Content Include="bitters\static\scripts\_references.js" />
-    <Content Include="bitters\templates\about.html" />
-    <Content Include="bitters\templates\contact.html" />
-    <Content Include="bitters\templates\index.html" />
-    <Content Include="bitters\templates\layout.html" />
+    <Content Include="pong\static\content\bootstrap.css" />
+    <Content Include="pong\static\content\bootstrap.min.css" />
+    <Content Include="pong\static\content\site.css" />
+    <Content Include="pong\static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="pong\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="pong\static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="pong\static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="pong\static\scripts\bootstrap.js" />
+    <Content Include="pong\static\scripts\bootstrap.min.js" />
+    <Content Include="pong\static\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="pong\static\scripts\jquery-1.10.2.js" />
+    <Content Include="pong\static\scripts\jquery-1.10.2.min.js" />
+    <Content Include="pong\static\scripts\jquery-1.10.2.min.map" />
+    <Content Include="pong\static\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="pong\static\scripts\jquery.validate.js" />
+    <Content Include="pong\static\scripts\jquery.validate.min.js" />
+    <Content Include="pong\static\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="pong\static\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="pong\static\scripts\modernizr-2.6.2.js" />
+    <Content Include="pong\static\scripts\respond.js" />
+    <Content Include="pong\static\scripts\respond.min.js" />
+    <Content Include="pong\static\scripts\_references.js" />
+    <Content Include="pong\templates\about.html" />
+    <Content Include="pong\templates\contact.html" />
+    <Content Include="pong\templates\index.html" />
+    <Content Include="pong\templates\layout.html" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
-      <Id>{2ce4c3f2-8c4f-4989-80d9-b05e4ee5bf8b}</Id>
+      <Id>{7253ac9d-c9ad-4c8d-8d2d-eb42a71131d1}</Id>
       <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
       <Version>2.7</Version>
       <Description>env (Python 2.7)</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <LibraryPath>Lib\</LibraryPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X86</Architecture>
+    </Interpreter>
+    <Interpreter Include="env_virtual\">
+      <Id>{d05d1812-3eac-4977-a015-da2f4c2f0ea8}</Id>
+      <BaseInterpreter>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</BaseInterpreter>
+      <Version>2.7</Version>
+      <Description>env_virtual (Python 2.7)</Description>
       <InterpreterPath>Scripts\python.exe</InterpreterPath>
       <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
       <LibraryPath>Lib\</LibraryPath>

@@ -1,37 +1,16 @@
-from flask.ext.wtf import Form, BooleanField, StringField, validators, SelectField, TextAreaField, HiddenField
+from flask.ext.wtf import Form, BooleanField, StringField, validators, SelectField, TextAreaField, HiddenField, IntegerField
 from wtforms import RadioField
+from wtforms.fields.html5 import EmailField
 
-
-#Intended for new placeables, should still get a selectable field though. 
-#TODO: Make some new selectable fields for placeable type
-class PlaceableForm(Form):
-    placeableName = StringField('Name', [validators.Length(min=4, max=20)])
-    new_description = TextAreaField('Description', [validators.Length(min=4, max=250)])
+class PlayerSignup(Form):
+    name = StringField('Name', [validators.Length(min=4, max=30)]) 
+    email = StringField('Email for matches', [validators.DataRequired(), validators.Email()], render_kw={"placeholder": "email/calendar for match invitations"})
+    avail = SelectField('Max match frequency', choices=[('2', 'Semi-Weekly'),('7', 'Weekly'), ('1', 'Daily'),('14', 'Bi-Weekly'), ('1000', 'Not availabe anymore')])
+    coach = SelectField('Are you available for coaching', choices=[('True', 'Yes'), ('False', 'Maybe some other time')])
     del_entity = HiddenField('del_entity')
-    #compatible character classes = undefined
-    #compatible upgrade types = undefined
-
-class placeableUpgradeTypeForm(Form):
-    name = StringField('Type Name', [validators.Length(min=4, max=20)])
-    description = TextAreaField('Describe the Intention of this type', [validators.Length(min=4, max=250)])
-    del_entity = HiddenField('del_entity')
-    
-class placeableUpgradeForm(Form):
-    name = StringField('Type Name', [validators.Length(min=4, max=20)])
-    description = TextAreaField('Describe the Intention of this upgrade', [validators.Length(min=4, max=250)])
-    del_entity = HiddenField('del_entity')
-    #upgradeType = undefined
-
-class CharacterClassForm(Form):
-    className = StringField('Character Class Name',[validators.Length(min=4, max=20)])
-    classDescription = TextAreaField('Describe the intention of this character class', [validators.Length(min=4, max=250)])
-    #classPerks = RollableClass Perks
-
-
-class EventActorForm(Form):
-    actorName = StringField('Event Actor name', [validators.Length(min=4, max=20)])
-    description = TextAreaField('Describe the intention of this actor', [validators.Length(min=4, max=250)])
-
-
-class EventForm(Form):
-    eventName = StringField('Event Name', [validators.Length(min=4, max=30)])
+   
+class MatchForm(Form):
+    winner = SelectField('Winner of the Match', coerce=unicode)
+    loser = SelectField('Seconed place of the match', coerce=unicode)
+    win_score = IntegerField('[Optional] Winner score', [validators.Optional()])
+    los_score = IntegerField('Loser score',[validators.Optional()])

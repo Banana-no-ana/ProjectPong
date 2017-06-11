@@ -7,7 +7,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    min-height: 400px;
+    min-height: 450px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -56,8 +56,8 @@ input[type="checkbox"].input-validation-error {
 }
 
 .existing_entities {
-    width:72%;    
-    margin-left:35%
+    width:50%;    
+    margin-left:50%
 }
 
 

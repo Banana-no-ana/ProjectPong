@@ -20,12 +20,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Project Bitters</a>
+                <a href="/" class="navbar-brand">Project Pong</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
-                    <li><a href="{{ url_for('placeable') }}">Placeables</a></li>
+                    <li><a href="{{ url_for('players') }}">Signup</a></li>
+                    <li><a href="{{ url_for('matches') }}">Matches</a></li>
+                    <li><a href="{{ url_for('ranking') }}">Ranking</a></li>
                 </ul>
             </div>
         </div>
@@ -37,7 +38,7 @@
     <div class="container">
         <hr />        
         <footer>
-            <p>&copy; {{ year }} - Projecet Bitters</p>
+            <p>&copy; {{ year }} - Daniel Piao</p>
         </footer>
     </div>
     

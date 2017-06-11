@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% extends "layout.html" %}
+    {% block content %}
+    <div class="entity_block existing_entities">
+        <h2>Current Rankings</h2>
+        {% for rank in ranking %}
+        <table class="existing_entity_table">
+            <tr>
+                <td><b># {{ loop.index }}  </b> </td>
+                    <td> {{ rank[1] }} </td>
+            </tr>
+        </table>
+        {% endfor %}        
+    </div>
+    <p></p>
+    {% endblock %}
+</body>
+</html>

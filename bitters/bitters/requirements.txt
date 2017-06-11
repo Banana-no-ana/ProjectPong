@@ -9,3 +9,4 @@
  flask-babel==0.8
  flup
  pydocumentdb>=1.0.0
+ trueskill

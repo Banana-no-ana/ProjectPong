@@ -10,16 +10,24 @@
     {% block content %}
     <div class="entity_block">
         <div class="new_entity">
-            <form action="" method="post" name="{{entityName}}">
-                <h2>New</h2>
+            <form action="" method="post" name="placeable">
+                <h2>New Player Signup</h2>
                 {{form.hidden_tag()}}
                 <div class="row">
                     {{ form.name.label }}
                     {{ form.name(class_="u-full-width") }}
                 </div>
                 <div class="row">
-                    {{ form.description.label }}
-                    {{ form.description(class_="u-full-width") }}
+                    {{ form.email.label }}
+                    {{ form.email(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    {{ form.avail.label }}
+                    {{ form.avail(class_="u-full-width") }}
+                </div>
+                <div class="row">
+                    {{ form.coach.label }}
+                    {{ form.coach }}
                 </div>
                     {{ form.del_entity }}
                 <button class="button-primary" type="submit">Upsert</button>
@@ -28,15 +36,15 @@
         </div>
     </div>    
     <div class="entity_block existing_entities">
-        <h2>Existing</h2>
+        <h2>Other Players</h2>
         {% for existing in existings %}
         <table class="existing_entity_table">
             <tr>
                 <td>Name</td>
                 <td><b>{{ existing.name }}</b></td>
             <tr>
-                <td>Description</td>
-                <td>{{ existing.description }}</td>
+                <td>Email</td>
+                <td>{{ existing.email }}</td>
             </tr>
         </table>
         {% endfor %}        

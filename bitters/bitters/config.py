@@ -1,10 +1,12 @@
 CSRF_ENABLED = True
-SECRET_KEY = 'you-will-never-guess'
+SECRET_KEY = 'Project_Pong_For_DevCenter'
 
-DOCUMENTDB_HOST = 'https://bitters.documents.azure.com:443/'
-DOCUMENTDB_KEY = 'QklkX11WdMArVi2RswGt3JVzCoYUazDqAWvl8QaygGl6DEHkMUldZEGa2WtJyRuc0hqL3xUHRXckcgbPJUcYQw=='
+DOCUMENTDB_HOST = 'https://pong.documents.azure.com:443/'
+DOCUMENTDB_KEY = 'uUuYVzDGxsVLrKEka79OjTpsrEGEHp7uiEPl6wMXWO2eSFLxanE1G80XIYuylxMKJK0Rce0XyL1bFIJ10hdsPw=='
 
-BITTERS_CONFIG = 'bitters config'
-PLACEABLES = 'placeables'
-PLACEABLE_UPGRADE_TYPE = 'placeable_upgrade_type'
-PLACEABLE_UPGRADE = 'placeable_upgrade'
+PONG_DB = 'pong db'
+#Player Collection
+PLAYERS = 'players'
+
+#Matches collection
+MATCHES = 'matches'
