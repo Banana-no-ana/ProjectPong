@@ -26,6 +26,7 @@ var/
 bitters/bitters/obj/**/*
 bitters/bitters/web.debug.config
 bitters/bitters/obj/Debug/web.debug.config
+env_virtual/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
