@@ -8,6 +8,7 @@ from pong import app
 import forms
 import config
 import pydocumentdb.document_client as document_client
+import requests
 
 
 """
@@ -168,3 +169,13 @@ def ranking():
                             year=datetime.now().year)
 
 
+@app.route('/schedule', methods=['GET', 'POST'])
+def schedule():
+    import pong.gameConfig.pong_controller.invite as inv
+    inv.sendemail()
+
+    return render_template(
+        'schedule.html',
+        title='Home Page',
+        year=datetime.now().year,
+    )
